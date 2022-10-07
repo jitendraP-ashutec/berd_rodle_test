@@ -1,0 +1,42 @@
+<!-- <h1>Enter User Details</h1>
+<div>
+  <label id="favorite-userEmail">Email: </label>
+  <input for="favorite-userEmail" placeholder="Enter your Email">
+</div>
+<div>
+  <label id="favorite-userEmail">Name: </label>
+  <input for="favorite-userEmail" placeholder="Enter your Name">
+</div>
+<div style="margin-top: 5px;">
+  <button (click)="dialogRef.close(data.userName)">OK</button>
+  <button (click)="dialogRef.close()">Cancel</button>
+</div> -->
+
+<div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" id="name" type="text" class="form-control">
+      <div *ngIf="form.controls.name.touched && form.controls.name.invalid" class="alert alert-danger">
+        <div *ngIf="form.controls.name.errors && form.controls.name.errors">Name is required & should be more than 3
+          character.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" type="text" class="form-control">
+      <div *ngIf="form.controls.email.touched && form.controls.email.invalid" class="alert alert-danger">
+        <div *ngIf="form.controls.email.errors && form.controls.email?.errors">Please, enter valid email address.</div>
+      </div>
+    </div>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-primary" [disabled]="(form.controls.name.invalid || form.controls.email.invalid)"
+        type="submit">Submit</button>
+      <button class="btn btn-primary" (click)="closeDialogue()">Cancel</button>
+    </div>
+  </form>
+
+</div>

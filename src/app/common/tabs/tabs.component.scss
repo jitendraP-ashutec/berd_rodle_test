@@ -1,0 +1,18 @@
+.tab-close {
+  color: gray;
+  text-align: right;
+  cursor: pointer;
+}
+
+ul.nav>li>a:hover {
+  background-color: #D3D3D3;
+  color: #FFFFFF;
+  border-style: none;
+  cursor: pointer;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: #808080;
+  color: #FFFFFF;
+}

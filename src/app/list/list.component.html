@@ -1,0 +1,33 @@
+<div style="margin-top: 20px;">
+    <input class="form-control" style="margin-bottom: 10px;width: 50%;" [(ngModel)]="searchableText" type="text"
+        name="userEmailSearch" id="userEmailSearch" placeholder="Search by User Email"
+        (ngModelChange)="this.userDetailsUpdate.next($event)">
+
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>User Name</th>
+            <th>User Email</th>
+        </tr>
+        <tr *ngFor="let ld of filterData | searchFilter: searchableText; let i = index">
+            <td>
+                {{i+1}}
+            </td>
+            <td class="pointer" (click)="moveToDetailsPage(ld?.userName)">
+                <a class="nav-link">
+                    {{ld?.userName}} &nbsp; <i class="bi bi-link"></i>
+                </a>
+            </td>
+            <td>
+                {{ld?.userEmail}}
+            </td>
+        </tr>
+        <tr *ngIf="!filterData || filterData.length === 0">
+            <td colspan="3">
+                <p class="text-center margin-bottom-0">
+                    There is No Users
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>

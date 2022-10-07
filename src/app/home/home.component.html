@@ -1,0 +1,12 @@
+<div class="container top-space">
+    <div class="card">
+        <div class="card-body d-flex justify-content-between">
+            <h1 class="card-title padding-margin-0">Please add User Information</h1>
+            <button class="btn btn-primary" (click)="openDialog()">Add User</button>
+        </div>
+    </div>
+    <div class="container">
+        <app-list-component [userDetails]='allUserDetails'>
+        </app-list-component>
+    </div>
+</div>
